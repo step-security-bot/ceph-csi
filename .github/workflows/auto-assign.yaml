@@ -10,6 +10,11 @@ jobs:
     name: Run self assign job
     runs-on: ubuntu-latest
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - name: take the issue
         uses: bdougie/take-action@main
         with:

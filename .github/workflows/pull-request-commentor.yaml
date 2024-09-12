@@ -47,6 +47,11 @@ jobs:
       github.event.pull_request.merged != true)
 
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - name: >
           Add comment to trigger external storage tests for Kubernetes
           ${{ matrix.k8s }}
@@ -86,6 +91,11 @@ jobs:
       github.event.pull_request.merged != true)
 
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - name: Add comment to trigger cephfs upgrade tests
         uses: peter-evans/create-or-update-comment@v4
         with:
@@ -115,6 +125,11 @@ jobs:
       github.event.pull_request.merged != true)
 
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - name: remove ok-to-test-label after commenting
         uses: actions/github-script@v7
         with:

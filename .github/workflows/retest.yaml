@@ -15,6 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # path to the retest action
+      - name: Harden Runner
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - uses: ceph/ceph-csi/actions/retest@devel
         with:
           GITHUB_TOKEN: ${{ secrets.CEPH_CSI_BOT_TOKEN }}
