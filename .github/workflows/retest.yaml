@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # path to the retest action
-      - uses: ceph/ceph-csi/actions/retest@devel
+      - uses: ceph/ceph-csi/actions/retest@42fc0b6bce96219a979fc7a3d7c2329e2ae1f607 # devel
         with:
           GITHUB_TOKEN: ${{ secrets.CEPH_CSI_BOT_TOKEN }}
           required-label: "ci/retry/e2e"
